@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.625rem;
+  --background: var(--color-zinc-50);
+  --foreground: var(--color-zinc-950);
+  --card: var(--color-white);
+  --card-foreground: var(--color-zinc-950);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-zinc-950);
+  --primary: var(--color-indigo-500);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-emerald-100);
+  --secondary-foreground: var(--color-emerald-900);
+  --muted: color-mix(in oklab, var(--color-foreground) 5%, transparent);
+  --muted-foreground: var(--color-zinc-600);
+  --accent: color-mix(in oklab, var(--color-foreground) 5%, transparent);
+  --accent-foreground: var(--color-zinc-900);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: color-mix(in oklab, var(--color-black) 7.5%, transparent);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --illustration: #fff;
+  --border-illustration: color-mix(in oklab, var(--color-black) 7.5%, transparent);
+}
+
+.dark {
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-zinc-50);
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-zinc-50);
+  --popover: var(--color-zinc-800);
+  --popover-foreground: var(--color-zinc-50);
+  --primary: var(--color-indigo-500);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+  --muted: color-mix(in oklab, var(--color-foreground) 5%, transparent);
+  --muted-foreground: var(--color-zinc-400);
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-50);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: color-mix(in oklab, var(--color-white) 7.5%, transparent);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --illustration: color-mix(in oklab, var(--color-zinc-800) 60%, #000);
+  --border-illustration: color-mix(in oklab, var(--color-white) 7.5%, transparent);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-illustration: var(--illustration);
+  --color-border-illustration: var(--border-illustration);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-hue-rotate: hue-rotate 8s linear infinite;
+}
+
+@keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+  33% {
+    filter: hue-rotate(120deg) saturate(1.5);
+  }
+  66% {
+    filter: hue-rotate(240deg) saturate(1.2);
+  }
+  100% {
+    filter: hue-rotate(360deg) saturate(1.2);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
